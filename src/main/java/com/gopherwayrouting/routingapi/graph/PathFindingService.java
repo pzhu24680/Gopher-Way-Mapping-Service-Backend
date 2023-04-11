@@ -69,6 +69,9 @@ public class PathFindingService {
         String curr=destination;
         while(!curr.equals(source)){
             path.add(distances.get(curr));
+            int currTotalDistance=(int)distances.get(curr).get(0);
+            int prevTotalDistance=(int)distances.get(path.get(path.size()-1).get(1)).get(0);
+            path.get(path.size()-1).add(currTotalDistance-prevTotalDistance);
             curr=(String)distances.get(curr).get(1);
         }
 //        path.add(source);
